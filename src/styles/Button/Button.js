@@ -12,6 +12,7 @@ const ButtonPrimary = css`
     border-radius: var(--RadiusBtn-default);
     font-size: var(--Button-size);
     font-weight: var(--Medium);
+    cursor: pointer;
 `;
 
 export const LoginBtn = styled.button`
@@ -35,6 +36,7 @@ export const SignUpLink = styled(Link)`
     width: 100%;
 `;
 export const GoBackBtn = styled(Link)`
+    cursor: pointer;
     border-radius: var(--RadiusBtn-default);
 
     text-align: center;
@@ -49,6 +51,7 @@ export const GoBackBtn = styled(Link)`
     font-weight: var(--Medium);
 `;
 export const BtnShowPassword = styled.button`
+    cursor: pointer;
     position: absolute;
     top: 12px;
     right: 10px;
