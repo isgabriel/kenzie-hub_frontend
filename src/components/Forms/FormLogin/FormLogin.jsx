@@ -5,6 +5,11 @@ import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { requestLogin } from "../../../services/api";
 import { schemaLogin } from "./schema";
+import { BtnShowPassword, LoginBtn } from "../../../styles/Button/Button";
+import { DivInputPassword, Input } from "../../../styles/Input/Input";
+import { NameOfInput, SpanError } from "../../../styles/Text/Text";
+import { Form } from "../../../styles/Form/Form";
+import { DivContainerInput } from "../../../styles/Container/Container";
 
 export function FormLogin({ setUser, setIsLoading }) {
     const [showPassword, setShowPassword] = useState(false);
@@ -23,35 +28,39 @@ export function FormLogin({ setUser, setIsLoading }) {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
-                <label>E-mail</label>
-                <input
+        <Form onSubmit={handleSubmit(onSubmit)}>
+            <DivContainerInput>
+                <NameOfInput>E-mail</NameOfInput>
+                <Input
                     type="email"
                     placeholder="Digite seu e-mail"
                     {...register("email")}
                 />
-                <span>{errors.email && errors.email.message}</span>
-            </div>
+                <SpanError>{errors.email && errors.email.message}</SpanError>
+            </DivContainerInput>
 
-            <div>
-                <label>Senha</label>
-                <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="btnShow"
-                >
-                    {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
-                </button>
-                <input
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Digite sua senha"
-                    {...register("password")}
-                />
-                <span>{errors.password && errors.password.message}</span>
-            </div>
+            <DivContainerInput>
+                <NameOfInput>Senha</NameOfInput>
+                <DivInputPassword>
+                    <BtnShowPassword
+                        type="button"
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="btnShow"
+                    >
+                        {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+                    </BtnShowPassword>
+                    <Input
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Digite sua senha"
+                        {...register("password")}
+                    />
+                </DivInputPassword>
+                <SpanError>
+                    {errors.password && errors.password.message}
+                </SpanError>
+            </DivContainerInput>
 
-            <button type="submit">Entrar</button>
-        </form>
+            <LoginBtn type="submit">Entrar</LoginBtn>
+        </Form>
     );
 }

@@ -1,10 +1,11 @@
+import { HeaderContainer } from "../../styles/Container/Container";
 import { Logo } from "../Logo/Logo";
 
 export function Header({ children }) {
     return (
-        <header>
+        <HeaderContainer>
             <Logo />
             {children}
-        </header>
+        </HeaderContainer>
     );
 }

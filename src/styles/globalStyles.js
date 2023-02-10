@@ -16,12 +16,15 @@ body{
   --negative-feedback: #E83F5B;
 
   /* Typography */
-  --title-1: 16px;
-  --title-1: 16px;
-  --title-1: 16px;
-  --headline: 12px;
-  --headline-bold: 12px;
-  --headline-italic: 12px;
+  --title-1: 1.125rem;
+  --title-2: 1rem;
+  --title-3: 1rem;
+  --text-1: 0.85rem;
+  --headline: .75rem;
+
+  --Button-size: 1rem;
+  --inputTitle: .625rem;
+
 
   --Bold: 700;
   --SemiBold: 600;
@@ -29,6 +32,10 @@ body{
   --Regular: 400;
   --Light: 300;
 
-  background-color: var(--grey-4)
+  --RadiusBtn-default: 4px;
+  --Radius-form: 3px;
+
+  background-color: var(--grey-4);
+  color: var(--grey-0);
 }
 `;

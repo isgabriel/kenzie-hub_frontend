@@ -1,7 +1,14 @@
 import { Logo } from "../../components/Logo/Logo";
 import { useState } from "react";
 import { FormLogin } from "../../components/Forms/FormLogin/FormLogin";
-import { Link } from "react-router-dom";
+import { SignUpLink } from "../../styles/Button/Button";
+import { TextToSignUp, Title } from "../../styles/Text/Text";
+import {
+    DivContainer,
+    DivContainerForm,
+    SectionContainer,
+    SectionSignUp,
+} from "../../styles/Container/Container";
 
 export function LoginPage({ setUser }) {
     const [isLoading, setIsLoading] = useState(false);
@@ -9,26 +16,28 @@ export function LoginPage({ setUser }) {
     if (isLoading) {
         return (
             <div>
-                <h2>Carregando...</h2>
+                <Title>Carregando...</Title>
             </div>
         );
     }
     return (
-        <div>
-            <div>
+        <SectionContainer>
+            <DivContainer>
                 <Logo />
-                <div>
-                    <h2>Login</h2>
+                <DivContainerForm>
+                    <Title>Login</Title>
 
                     <FormLogin setUser={setUser} setIsLoading={setIsLoading} />
 
-                    <span>Ainda não possui uma conta?</span>
+                    <SectionSignUp>
+                        <TextToSignUp>Ainda não possui uma conta?</TextToSignUp>
 
-                    <Link to="/register" type="disabled">
-                        Cadastre-se
-                    </Link>
-                </div>
-            </div>
-        </div>
+                        <SignUpLink to="/register" type="disabled">
+                            Cadastre-se
+                        </SignUpLink>
+                    </SectionSignUp>
+                </DivContainerForm>
+            </DivContainer>
+        </SectionContainer>
     );
 }
