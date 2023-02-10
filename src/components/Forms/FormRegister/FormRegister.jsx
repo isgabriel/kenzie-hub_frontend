@@ -5,6 +5,17 @@ import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { requestRegister } from "../../../services/api";
 import { useNavigate } from "react-router-dom";
 import { schemaRegister } from "./schema";
+import { Form } from "../../../styles/Form/Form";
+import { DivContainerInput } from "../../../styles/Container/Container";
+import { NameOfInput, SpanError } from "../../../styles/Text/Text";
+import { DivInputPassword, Input } from "../../../styles/Input/Input";
+import {
+    BtnShowPassword,
+    LoginBtn,
+    SignUpBtn,
+    SignUpLink,
+} from "../../../styles/Button/Button";
+import { Select } from "../../../styles/Select/Select";
 
 export function FormRegister({ setIsLoading }) {
     const [showPassword, setShowPassword] = useState(false);
@@ -25,90 +36,102 @@ export function FormRegister({ setIsLoading }) {
     }
 
     return (
-        <form onSubmit={handleSubmit(RegisteronSubmit)}>
-            <div>
-                <label>Nome</label>
-                <input
+        <Form onSubmit={handleSubmit(RegisteronSubmit)}>
+            <DivContainerInput>
+                <NameOfInput>Nome</NameOfInput>
+                <Input
                     type="text"
                     placeholder="Digite aqui seu nome"
                     {...register("name")}
                 />
-                {errors.name && <span>{errors.name.message}</span>}
-            </div>
+                {errors.name && <SpanError>{errors.name.message}</SpanError>}
+            </DivContainerInput>
 
-            <div>
-                <label>E-mail</label>
-                <input
+            <DivContainerInput>
+                <NameOfInput>E-mail</NameOfInput>
+                <Input
                     type="email"
                     placeholder="Digite seu e-mail"
                     {...register("email")}
                 />
-                {errors.email && <span>{errors.email.message}</span>}
-            </div>
+                {errors.email && <SpanError>{errors.email.message}</SpanError>}
+            </DivContainerInput>
 
-            <div>
-                <label>Senha</label>
-                <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="btnShow"
-                >
-                    {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
-                </button>
-                <input
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Digite sua senha"
-                    {...register("password")}
-                />
-                {errors.password && <span>{errors.password.message}</span>}
-            </div>
+            <DivContainerInput>
+                <NameOfInput>Senha</NameOfInput>
+                <DivInputPassword>
+                    <BtnShowPassword
+                        type="button"
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="btnShow"
+                    >
+                        {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+                    </BtnShowPassword>
+                    <Input
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Digite sua senha"
+                        {...register("password")}
+                    />
+                </DivInputPassword>
 
-            <div>
-                <label>Confirme sua senha</label>
-                <button
-                    type="button"
-                    onClick={() => setShowSecondPassword(!showSecondPassword)}
-                    className="btnShow"
-                >
-                    {showSecondPassword ? (
-                        <AiFillEye />
-                    ) : (
-                        <AiFillEyeInvisible />
-                    )}
-                </button>
-                <input
-                    type={showSecondPassword ? "text" : "password"}
-                    placeholder="Confirme sua senha"
-                    {...register("confirmPassword")}
-                />
-                {errors.confirmPassword && (
-                    <span>{errors.confirmPassword.message}</span>
+                {errors.password && (
+                    <SpanError>{errors.password.message}</SpanError>
                 )}
-            </div>
+            </DivContainerInput>
 
-            <div>
-                <label>Bio</label>
-                <input
+            <DivContainerInput>
+                <NameOfInput>Confirme sua senha</NameOfInput>
+                <DivInputPassword>
+                    <BtnShowPassword
+                        type="button"
+                        onClick={() =>
+                            setShowSecondPassword(!showSecondPassword)
+                        }
+                        className="btnShow"
+                    >
+                        {showSecondPassword ? (
+                            <AiFillEye />
+                        ) : (
+                            <AiFillEyeInvisible />
+                        )}
+                    </BtnShowPassword>
+                    <Input
+                        type={showSecondPassword ? "text" : "password"}
+                        placeholder="Confirme sua senha"
+                        {...register("confirmPassword")}
+                    />
+                </DivInputPassword>
+
+                {errors.confirmPassword && (
+                    <SpanError>{errors.confirmPassword.message}</SpanError>
+                )}
+            </DivContainerInput>
+
+            <DivContainerInput>
+                <NameOfInput>Bio</NameOfInput>
+                <Input
                     type="text"
                     placeholder="Fale sobre você"
                     {...register("bio")}
                 />
-                {errors.bio && <span>{errors.bio.message}</span>}
-            </div>
+                {errors.bio && <SpanError>{errors.bio.message}</SpanError>}
+            </DivContainerInput>
 
-            <div>
-                <label>Contato</label>
-                <input
+            <DivContainerInput>
+                <NameOfInput>Contato</NameOfInput>
+                <Input
                     type="text"
                     placeholder="Opção de contato"
                     {...register("contact")}
                 />
-                {errors.contact && <span>{errors.contact.message}</span>}
-            </div>
+                {errors.contact && (
+                    <SpanError>{errors.contact.message}</SpanError>
+                )}
+            </DivContainerInput>
 
-            <div>
-                <label>Selecionar módulo</label>
-                <select {...register("course_module")}>
+            <DivContainerInput>
+                <NameOfInput>Selecionar módulo</NameOfInput>
+                <Select {...register("course_module")}>
                     <option hidden={true}>Selecione seu módulo</option>
                     <option value="Primeiro módulo (Introdução ao Frontend)">
                         Primeiro módulo
@@ -122,13 +145,13 @@ export function FormRegister({ setIsLoading }) {
                     <option value="Quarto módulo (Backend Avançado)">
                         Quarto módulo
                     </option>
-                </select>
+                </Select>
                 {errors.course_module && (
-                    <span>{errors.course_module.message}</span>
+                    <SpanError>{errors.course_module.message}</SpanError>
                 )}
-            </div>
+            </DivContainerInput>
 
-            <button type="submit">Entrar</button>
-        </form>
+            <SignUpBtn type="submit">Cadastrar</SignUpBtn>
+        </Form>
     );
 }
