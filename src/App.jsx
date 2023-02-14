@@ -6,13 +6,13 @@ import "react-toastify/dist/ReactToastify.css";
 import { Routes } from "./routes/Routes";
 
 export function App() {
-    const [user, setUser] = useState(null);
+    // const [user, setUser] = useState(null);
     return (
         <>
             <GlobalReset />
             <GlobalStyles />
             <ToastContainer />
-            <Routes user={user} setUser={setUser} />
+            <Routes />
         </>
     );
 }

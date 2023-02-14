@@ -1,15 +1,19 @@
 import { Routes as RoutesMain, Route } from "react-router-dom";
+import { ProtectedRoutes } from "../components/ProtectedRoutes/ProtectedRoutes";
 import { Dashboard } from "../pages/Dashboard/Dashboard";
 import { LoginPage } from "../pages/LoginPage/LoginPage";
 import { RegisterPage } from "../pages/RegisterPage/RegisterPage";
 
-export function Routes({ user, setUser }) {
+export function Routes() {
     return (
         <>
             <RoutesMain>
-                <Route path="/" element={<LoginPage setUser={setUser} />} />
+                <Route path="/" element={<LoginPage />} />
                 <Route path="/register" element={<RegisterPage />} />
-                <Route path="/dashboard" element={<Dashboard user={user} />} />
+
+                <Route element={<ProtectedRoutes />}>
+                    <Route path="/dashboard" element={<Dashboard />} />
+                </Route>
             </RoutesMain>
         </>
     );

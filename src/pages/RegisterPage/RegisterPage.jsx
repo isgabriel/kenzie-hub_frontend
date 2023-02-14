@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { FormRegister } from "../../components/Forms/FormRegister/FormRegister";
+import { useContext, useState } from "react";
+import { FormRegister } from "./FormRegister/FormRegister";
 import { Header } from "../../components/Header/Header";
 import { GoBackBtn } from "../../styles/Button/Button";
 import {
@@ -9,11 +9,12 @@ import {
     SectionContainer,
 } from "../../styles/Container/Container";
 import { TextRegister, Title } from "../../styles/Text/Text";
+import { UserContext } from "../../Providers/UserContext/UserContext";
 
-export function RegisterPage({ setUser }) {
-    const [isLoading, setIsLoading] = useState(false);
+export function RegisterPage() {
+    const { isLoadingRegister } = useContext(UserContext);
 
-    if (isLoading) {
+    if (isLoadingRegister) {
         return <h2>Carregando...</h2>;
     }
     return (
@@ -31,10 +32,7 @@ export function RegisterPage({ setUser }) {
 
                     <TextRegister>Rápido e grátis, vamos nessa</TextRegister>
 
-                    <FormRegister
-                        setUser={setUser}
-                        setIsLoading={setIsLoading}
-                    />
+                    <FormRegister />
                 </DivContainerForm>
             </DivContainer>
         </SectionContainer>
