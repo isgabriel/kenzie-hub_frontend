@@ -1,9 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
-import { requestRegister } from "../../../services/api";
-import { useNavigate } from "react-router-dom";
 import { schemaRegister } from "./schema";
 import { Form } from "../../../styles/Form/Form";
 import { DivContainerInput } from "../../../styles/Container/Container";
@@ -16,12 +14,13 @@ import {
     SignUpLink,
 } from "../../../styles/Button/Button";
 import { Select } from "../../../styles/Select/Select";
+import { UserContext } from "../../../Providers/UserContext/UserContext";
 
-export function FormRegister({ setIsLoading }) {
+export function FormRegister() {
     const [showPassword, setShowPassword] = useState(false);
     const [showSecondPassword, setShowSecondPassword] = useState(false);
 
-    const navigate = useNavigate();
+    const { requestRegister } = useContext(UserContext);
 
     const {
         register,
@@ -32,7 +31,7 @@ export function FormRegister({ setIsLoading }) {
     });
 
     async function RegisteronSubmit(data) {
-        await requestRegister(data, navigate, setIsLoading);
+        await requestRegister(data);
     }
 
     return (

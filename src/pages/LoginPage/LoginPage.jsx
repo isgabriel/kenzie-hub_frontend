@@ -1,6 +1,5 @@
 import { Logo } from "../../components/Logo/Logo";
-import { useState } from "react";
-import { FormLogin } from "../../components/Forms/FormLogin/FormLogin";
+
 import { SignUpLink } from "../../styles/Button/Button";
 import { TextToSignUp, Title } from "../../styles/Text/Text";
 import {
@@ -9,17 +8,21 @@ import {
     SectionContainer,
     SectionSignUp,
 } from "../../styles/Container/Container";
+import { useContext } from "react";
+import { UserContext } from "../../Providers/UserContext/UserContext";
+import { FormLogin } from "./FormLogin/FormLogin";
 
-export function LoginPage({ setUser }) {
-    const [isLoading, setIsLoading] = useState(false);
+export function LoginPage() {
+    const { isLoadingLogin } = useContext(UserContext);
 
-    if (isLoading) {
+    if (isLoadingLogin) {
         return (
             <div>
                 <Title>Carregando...</Title>
             </div>
         );
     }
+
     return (
         <SectionContainer>
             <DivContainer>
@@ -27,8 +30,7 @@ export function LoginPage({ setUser }) {
                 <DivContainerForm>
                     <Title>Login</Title>
 
-                    <FormLogin setUser={setUser} setIsLoading={setIsLoading} />
-
+                    <FormLogin />
                     <SectionSignUp>
                         <TextToSignUp>Ainda não possui uma conta?</TextToSignUp>
 
