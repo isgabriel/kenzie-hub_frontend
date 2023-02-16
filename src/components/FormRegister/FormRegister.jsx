@@ -1,20 +1,16 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { schemaRegister } from "./schema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
-import { schemaRegister } from "./schema";
-import { Form } from "../../../styles/Form/Form";
-import { DivContainerInput } from "../../../styles/Container/Container";
-import { NameOfInput, SpanError } from "../../../styles/Text/Text";
-import { DivInputPassword, Input } from "../../../styles/Input/Input";
-import {
-    BtnShowPassword,
-    LoginBtn,
-    SignUpBtn,
-    SignUpLink,
-} from "../../../styles/Button/Button";
-import { Select } from "../../../styles/Select/Select";
-import { UserContext } from "../../../Providers/UserContext/UserContext";
+import { Form } from "../../styles/Form";
+import { ContainerInput } from "../../styles/Container/Container";
+import { SpanError } from "../../styles/Text/Text";
+import { DivInputPassword, Input } from "../../styles/Input";
+import { BtnShowPassword, SignUpBtn } from "../../styles/Button";
+import { Select } from "../../styles/Select/Select";
+import { UserContext } from "../../Providers/UserContext/UserContext";
+import { NameOfInput } from "../../styles/Label";
 
 export function FormRegister() {
     const [showPassword, setShowPassword] = useState(false);
@@ -36,7 +32,7 @@ export function FormRegister() {
 
     return (
         <Form onSubmit={handleSubmit(RegisteronSubmit)}>
-            <DivContainerInput>
+            <ContainerInput>
                 <NameOfInput>Nome</NameOfInput>
                 <Input
                     type="text"
@@ -44,9 +40,9 @@ export function FormRegister() {
                     {...register("name")}
                 />
                 {errors.name && <SpanError>{errors.name.message}</SpanError>}
-            </DivContainerInput>
+            </ContainerInput>
 
-            <DivContainerInput>
+            <ContainerInput>
                 <NameOfInput>E-mail</NameOfInput>
                 <Input
                     type="email"
@@ -54,9 +50,9 @@ export function FormRegister() {
                     {...register("email")}
                 />
                 {errors.email && <SpanError>{errors.email.message}</SpanError>}
-            </DivContainerInput>
+            </ContainerInput>
 
-            <DivContainerInput>
+            <ContainerInput>
                 <NameOfInput>Senha</NameOfInput>
                 <DivInputPassword>
                     <BtnShowPassword
@@ -76,9 +72,9 @@ export function FormRegister() {
                 {errors.password && (
                     <SpanError>{errors.password.message}</SpanError>
                 )}
-            </DivContainerInput>
+            </ContainerInput>
 
-            <DivContainerInput>
+            <ContainerInput>
                 <NameOfInput>Confirme sua senha</NameOfInput>
                 <DivInputPassword>
                     <BtnShowPassword
@@ -104,9 +100,9 @@ export function FormRegister() {
                 {errors.confirmPassword && (
                     <SpanError>{errors.confirmPassword.message}</SpanError>
                 )}
-            </DivContainerInput>
+            </ContainerInput>
 
-            <DivContainerInput>
+            <ContainerInput>
                 <NameOfInput>Bio</NameOfInput>
                 <Input
                     type="text"
@@ -114,9 +110,9 @@ export function FormRegister() {
                     {...register("bio")}
                 />
                 {errors.bio && <SpanError>{errors.bio.message}</SpanError>}
-            </DivContainerInput>
+            </ContainerInput>
 
-            <DivContainerInput>
+            <ContainerInput>
                 <NameOfInput>Contato</NameOfInput>
                 <Input
                     type="text"
@@ -126,9 +122,9 @@ export function FormRegister() {
                 {errors.contact && (
                     <SpanError>{errors.contact.message}</SpanError>
                 )}
-            </DivContainerInput>
+            </ContainerInput>
 
-            <DivContainerInput>
+            <ContainerInput>
                 <NameOfInput>Selecionar módulo</NameOfInput>
                 <Select {...register("course_module")}>
                     <option hidden={true}>Selecione seu módulo</option>
@@ -148,7 +144,7 @@ export function FormRegister() {
                 {errors.course_module && (
                     <SpanError>{errors.course_module.message}</SpanError>
                 )}
-            </DivContainerInput>
+            </ContainerInput>
 
             <SignUpBtn type="submit">Cadastrar</SignUpBtn>
         </Form>
