@@ -5,11 +5,6 @@ export const Title = styled.h1`
     font-weight: var(--Bold);
 `;
 
-export const NameOfInput = styled.label`
-    font-size: var(--inputTitle);
-    font-weight: var(--Regular);
-`;
-
 export const TextToSignUp = styled.p`
     font-size: var(--inputTitle);
     font-weight: var(--SemiBold);

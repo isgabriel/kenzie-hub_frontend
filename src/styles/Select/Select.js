@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const Select = styled.select`
-    padding: 9px 13px;
+    padding: 11px 13px;
 
-    width: 97%;
-    min-width: 260px;
+    width: 100%;
+    min-width: 230px;
+    max-width: 325px;
 
     border: none;
     border-radius: var(--Radius-form);

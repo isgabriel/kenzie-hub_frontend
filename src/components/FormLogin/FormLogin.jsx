@@ -1,14 +1,16 @@
 import { useContext, useState } from "react";
-import { UserContext } from "../../../Providers/UserContext/UserContext";
+import { UserContext } from "../../Providers/UserContext/UserContext";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { schemaLogin } from "./schema";
-import { BtnShowPassword, LoginBtn } from "../../../styles/Button/Button";
-import { DivInputPassword, Input } from "../../../styles/Input/Input";
-import { NameOfInput, SpanError } from "../../../styles/Text/Text";
-import { Form } from "../../../styles/Form/Form";
-import { DivContainerInput } from "../../../styles/Container/Container";
+import { BtnShowPassword } from "../../styles/Button";
+import { DivInputPassword, Input } from "../../styles/Input";
+import { SpanError } from "../../styles/Text/Text";
+import { Form } from "../../styles/Form";
+import { ContainerInput } from "../../styles/Container/Container";
+import { NameOfInput } from "../../styles/Label";
+import { LoginBtn } from "./style";
 
 export function FormLogin() {
     const { requestLogin } = useContext(UserContext);
@@ -28,7 +30,7 @@ export function FormLogin() {
 
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>
-            <DivContainerInput>
+            <ContainerInput>
                 <NameOfInput htmlFor="email">E-mail</NameOfInput>
                 <Input
                     type="email"
@@ -37,9 +39,9 @@ export function FormLogin() {
                     {...register("email")}
                 />
                 <SpanError>{errors.email && errors.email.message}</SpanError>
-            </DivContainerInput>
+            </ContainerInput>
 
-            <DivContainerInput>
+            <ContainerInput>
                 <NameOfInput htmlFor="password">Senha</NameOfInput>
                 <DivInputPassword>
                     <BtnShowPassword
@@ -59,7 +61,7 @@ export function FormLogin() {
                 <SpanError>
                     {errors.password && errors.password.message}
                 </SpanError>
-            </DivContainerInput>
+            </ContainerInput>
 
             <LoginBtn type="submit">Entrar</LoginBtn>
         </Form>

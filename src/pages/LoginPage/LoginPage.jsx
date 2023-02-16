@@ -1,16 +1,15 @@
 import { Logo } from "../../components/Logo/Logo";
 
-import { SignUpLink } from "../../styles/Button/Button";
 import { TextToSignUp, Title } from "../../styles/Text/Text";
 import {
     DivContainer,
-    DivContainerForm,
-    SectionContainer,
+    ContainerForm,
     SectionSignUp,
 } from "../../styles/Container/Container";
 import { useContext } from "react";
 import { UserContext } from "../../Providers/UserContext/UserContext";
-import { FormLogin } from "./FormLogin/FormLogin";
+import { FormLogin } from "../../components/FormLogin/FormLogin";
+import { SignUpLink } from "./style";
 
 export function LoginPage() {
     const { isLoadingLogin } = useContext(UserContext);
@@ -24,10 +23,10 @@ export function LoginPage() {
     }
 
     return (
-        <SectionContainer>
+        <section>
             <DivContainer>
                 <Logo />
-                <DivContainerForm>
+                <ContainerForm>
                     <Title>Login</Title>
 
                     <FormLogin />
@@ -38,8 +37,8 @@ export function LoginPage() {
                             Cadastre-se
                         </SignUpLink>
                     </SectionSignUp>
-                </DivContainerForm>
+                </ContainerForm>
             </DivContainer>
-        </SectionContainer>
+        </section>
     );
 }

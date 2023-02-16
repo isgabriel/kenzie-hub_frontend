@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const SectionContainer = styled.section`
-    height: 100vh;
+export const section = styled.section`
+    /* height: 100vh; */
 `;
 
 export const DivContainer = styled.div`
@@ -12,17 +12,13 @@ export const DivContainer = styled.div`
 
     min-height: 100vh;
 `;
-export const DivHeaderContainerLogin = styled.div`
+
+export const ContainerInput = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    width: 100%;
-    max-width: 410px;
+    gap: 14px;
 `;
-
-export const DivContainerForm = styled.div`
+export const ContainerForm = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,11 +35,7 @@ export const DivContainerForm = styled.div`
 
     border-radius: var(--Radius-form);
 `;
-export const DivContainerInput = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-`;
+
 export const SectionSignUp = styled.section`
     width: 90%;
 

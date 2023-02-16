@@ -1,25 +1,18 @@
 import { useContext } from "react";
 import { UserContext } from "../../Providers/UserContext/UserContext";
-import { GoBackBtn } from "../../styles/Button/Button";
+import { GoBackBtn } from "../../pages/RegisterPage/style";
 import {
     DivContainerDash,
-    DivInfoBody,
     DivUserInfos,
-    SectionContainer,
 } from "../../styles/Container/Container";
-import {
-    DashboardTitleTextMain,
-    NameUserDashboard,
-    TextRegister,
-    UserModuleDashboard,
-} from "../../styles/Text/Text";
+import { NameUserDashboard, UserModuleDashboard } from "../../styles/Text/Text";
 import { Header } from "../Header/Header";
 
 export function DashInfo() {
     const { user, handleLogout } = useContext(UserContext);
 
     return (
-        <SectionContainer>
+        <section>
             <DivContainerDash>
                 <Header>
                     <GoBackBtn to="/" onClick={handleLogout}>
@@ -35,15 +28,6 @@ export function DashInfo() {
                     </UserModuleDashboard>
                 </DivUserInfos>
             </div>
-            <DivInfoBody>
-                <DashboardTitleTextMain>
-                    Que pena! Estamos em desenvolvimento {":("}
-                </DashboardTitleTextMain>
-                <TextRegister>
-                    Nossa aplicação está em desenvolvimento, em breve teremos
-                    novidades
-                </TextRegister>
-            </DivInfoBody>
-        </SectionContainer>
+        </section>
     );
 }
