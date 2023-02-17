@@ -2,19 +2,19 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../Providers/UserContext/UserContext";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { schemaLogin } from "./schema";
-import { BtnShowPassword } from "../../styles/Button";
-import { DivInputPassword, Input } from "../../styles/Input";
-import { SpanError } from "../../styles/Text/Text";
+import { Input } from "../../styles/Input";
 import { Form } from "../../styles/Form";
-import { ContainerInput } from "../../styles/Container/Container";
-import { NameOfInput } from "../../styles/Label";
+
 import { LoginBtn } from "./style";
+import { InputWrapper } from "../InputWrapper/InputWrapper";
+import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
+import { InputPassword } from "../InputPassword/InputPassword";
+import { Label } from "../Label/Label";
 
 export function FormLogin() {
+    const { showPassword, setShowPassword } = useContext(UserContext);
     const { requestLogin } = useContext(UserContext);
-    const [showPassword, setShowPassword] = useState(false);
 
     const {
         register,
@@ -30,38 +30,33 @@ export function FormLogin() {
 
     return (
         <Form onSubmit={handleSubmit(onSubmit)}>
-            <ContainerInput>
-                <NameOfInput htmlFor="email">E-mail</NameOfInput>
+            <InputWrapper>
+                <Label htmlFor="email">E-mail</Label>
                 <Input
                     type="email"
                     id="email"
                     placeholder="Digite seu e-mail"
                     {...register("email")}
                 />
-                <SpanError>{errors.email && errors.email.message}</SpanError>
-            </ContainerInput>
+                <ErrorMessage>
+                    {errors.email && errors.email.message}
+                </ErrorMessage>
+            </InputWrapper>
 
-            <ContainerInput>
-                <NameOfInput htmlFor="password">Senha</NameOfInput>
-                <DivInputPassword>
-                    <BtnShowPassword
-                        type="button"
-                        onClick={() => setShowPassword(!showPassword)}
-                        className="btnShow"
-                    >
-                        {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
-                    </BtnShowPassword>
+            <InputWrapper>
+                <Label htmlFor="password">Senha</Label>
+                <InputPassword>
                     <Input
                         type={showPassword ? "text" : "password"}
                         id="password"
                         placeholder="Digite sua senha"
                         {...register("password")}
                     />
-                </DivInputPassword>
-                <SpanError>
+                </InputPassword>
+                <ErrorMessage>
                     {errors.password && errors.password.message}
-                </SpanError>
-            </ContainerInput>
+                </ErrorMessage>
+            </InputWrapper>
 
             <LoginBtn type="submit">Entrar</LoginBtn>
         </Form>

@@ -12,4 +12,8 @@ export const LoginBtn = styled.button`
 
     font-size: var(--Button-size);
     font-weight: var(--Medium);
+    &:hover {
+        transition: 0.6s;
+        background-color: var(--color-primary-focus);
+    }
 `;

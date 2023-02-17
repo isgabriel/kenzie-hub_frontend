@@ -24,7 +24,7 @@ export const TechProvider = ({ children }) => {
     const [isModalCreated, setIsModalCreated] = useState(null);
     const [isLoadingCreate, setIsLoadingCreate] = useState(false);
 
-    async function handleCreate(data) {
+    async function createTech(data) {
         setIsLoadingCreate(true);
 
         try {
@@ -96,7 +96,7 @@ export const TechProvider = ({ children }) => {
             value={{
                 isModalVisible,
                 setIsModalVisible,
-                handleCreate,
+                createTech,
                 removeTech,
                 techList,
                 isModalUpdateVisible,

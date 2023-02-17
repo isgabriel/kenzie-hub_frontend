@@ -3,22 +3,31 @@ import { DashInfo } from "../../components/DashInfo/DashInfo";
 import { ModalCreate } from "../../components/Modal/ModalCreate/ModalCreate";
 import { TechList } from "../../components/TechList/TechList";
 import { TechContext } from "../../Providers/TechContext/TechContext";
+import {
+    ButtonAddTech,
+    DivTecnologies,
+    MainDash,
+    SectionTecnologies,
+    TecnologiesTitle,
+} from "./style";
 
 export function Dashboard() {
     const { isModalVisible, setIsModalVisible } = useContext(TechContext);
     return (
-        <main>
+        <MainDash>
             {" "}
             {isModalVisible && <ModalCreate />}
             <DashInfo />
-            <div>
-                <div>
-                    <h3>Tecnologias</h3>
+            <SectionTecnologies>
+                <DivTecnologies>
+                    <TecnologiesTitle>Tecnologias</TecnologiesTitle>
 
-                    <button onClick={() => setIsModalVisible(true)}>+</button>
-                </div>
+                    <ButtonAddTech onClick={() => setIsModalVisible(true)}>
+                        +
+                    </ButtonAddTech>
+                </DivTecnologies>
                 <TechList />
-            </div>
-        </main>
+            </SectionTecnologies>
+        </MainDash>
     );
 }

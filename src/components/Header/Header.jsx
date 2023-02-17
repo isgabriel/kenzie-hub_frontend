@@ -1,5 +1,5 @@
-import { HeaderContainer } from "../../styles/Container/Container";
 import { Logo } from "../Logo/Logo";
+import { HeaderContainer } from "./style";
 
 export function Header({ children }) {
     return (

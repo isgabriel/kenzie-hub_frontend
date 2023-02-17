@@ -14,6 +14,7 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
+  list-style: none;;
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -46,7 +47,7 @@ body{
   --title-1: 1.125rem;
   --title-2: 1rem;
   --title-3: 1rem;
-  --text-1: 0.85rem;
+  --text-1: .85rem;
   --headline: .75rem;
 
   --Button-size: 1rem;

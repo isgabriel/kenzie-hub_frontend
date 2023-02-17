@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import styled, { css } from "styled-components";
+import { css } from "styled-components";
 
 export const ButtonPrimary = css`
     min-width: 230px;
@@ -15,20 +14,23 @@ export const ButtonPrimary = css`
     cursor: pointer;
 `;
 
-export const BtnShowPassword = styled.button`
+export const ButtonSecondary = css`
     cursor: pointer;
-    position: absolute;
-    top: 12px;
-    right: 10px;
-    background-color: transparent;
-    border: none;
-`;
-export const SignUpBtn = styled.button`
-    ${ButtonPrimary};
-    width: 100%;
+    border-radius: var(--RadiusBtn-default);
 
-    border: none;
+    text-align: center;
 
-    background-color: var(--color-primary-negative);
+    background-color: var(--grey-3);
     color: var(--grey-0);
+
+    padding: 9px 23px;
+    max-width: 68px;
+
+    font-size: var(--headline);
+    font-weight: var(--Medium);
+
+    &:hover {
+        transition: 0.6s;
+        background-color: var(--grey-2);
+    }
 `;

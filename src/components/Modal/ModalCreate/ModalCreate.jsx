@@ -1,18 +1,19 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { useOutClick } from "../../../hooks/hookOutClick/useOutClick";
 import { TechContext } from "../../../Providers/TechContext/TechContext";
 
 export function ModalCreate() {
-    const { setIsModalVisible, handleCreate } = useContext(TechContext);
-    const [loading, setLoading] = useState(false);
+    const { setIsModalVisible, createTech } = useContext(TechContext);
 
     const { register, handleSubmit, reset } = useForm();
 
     function submit(data) {
         if (data.title !== "" && data.status !== "") {
-            handleCreate(data);
+            createTech(data);
+            setIsModalVisible(false);
             reset();
         }
     }
@@ -38,7 +39,7 @@ export function ModalCreate() {
 
                     <section>
                         <label>Selecionar status</label>
-                        <select {...register("status")} disabled={loading}>
+                        <select {...register("status")}>
                             <option hidden={true}>Selecionar status</option>
                             <option value="Iniciante">Iniciante</option>
                             <option value="Intermediário">Intermediário</option>
