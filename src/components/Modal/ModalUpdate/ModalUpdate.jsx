@@ -1,12 +1,8 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
 import { useOutClick } from "../../../hooks/hookOutClick/useOutClick";
 import { TechContext } from "../../../Providers/TechContext/TechContext";
-import { ContainerForm } from "../../../styles/Container";
-import { Form } from "../../../styles/Form";
-import { Input } from "../../../styles/Input";
-import { Select, SignUpBtn } from "../../FormRegister/style";
+import { Select } from "../../FormRegister/style";
 import { InputWrapper } from "../../InputWrapper/InputWrapper";
 import { Label } from "../../Label/Label";
 import {

@@ -1,7 +1,5 @@
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import { useOutClick } from "../../../hooks/hookOutClick/useOutClick";
 import { TechContext } from "../../../Providers/TechContext/TechContext";
 import { Input } from "../../../styles/Input";

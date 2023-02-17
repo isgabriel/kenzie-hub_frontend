@@ -4,7 +4,7 @@ import { Input } from "../../styles/Input";
 export const SectionModal = styled.dialog`
     z-index: 10;
 
-    height: 100%;
+    min-height: 100vh;
     min-width: 280px;
     width: 100vw;
 
