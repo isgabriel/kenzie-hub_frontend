@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-export const DivInputPassword = styled.div`
-    position: relative;
-    width: 100%;
-`;
 export const Input = styled.input`
     padding: 12px 13px;
 

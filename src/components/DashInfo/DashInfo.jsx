@@ -1,33 +1,36 @@
 import { useContext } from "react";
 import { UserContext } from "../../Providers/UserContext/UserContext";
-import { GoBackBtn } from "../../pages/RegisterPage/style";
+import { Header } from "../Header/Header";
 import {
+    DivBorders,
     DivContainerDash,
     DivUserInfos,
-} from "../../styles/Container/Container";
-import { NameUserDashboard, UserModuleDashboard } from "../../styles/Text/Text";
-import { Header } from "../Header/Header";
+    LogoutBtn,
+    NameUserDashboard,
+    SectionContainerDash,
+    UserModuleDashboard,
+} from "./style";
 
 export function DashInfo() {
     const { user, handleLogout } = useContext(UserContext);
 
     return (
-        <section>
+        <SectionContainerDash>
             <DivContainerDash>
                 <Header>
-                    <GoBackBtn to="/" onClick={handleLogout}>
+                    <LogoutBtn to="/" onClick={handleLogout}>
                         Sair
-                    </GoBackBtn>
+                    </LogoutBtn>
                 </Header>
             </DivContainerDash>
-            <div>
+            <DivBorders>
                 <DivUserInfos>
                     <NameUserDashboard>Olá, {user.name}</NameUserDashboard>
                     <UserModuleDashboard>
                         {user.course_module}
                     </UserModuleDashboard>
                 </DivUserInfos>
-            </div>
-        </section>
+            </DivBorders>
+        </SectionContainerDash>
     );
 }

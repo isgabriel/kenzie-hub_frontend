@@ -1,15 +1,11 @@
 import { Logo } from "../../components/Logo/Logo";
 
-import { TextToSignUp, Title } from "../../styles/Text/Text";
-import {
-    DivContainer,
-    ContainerForm,
-    SectionSignUp,
-} from "../../styles/Container/Container";
+import { DivContainer, ContainerForm } from "../../styles/Container";
 import { useContext } from "react";
 import { UserContext } from "../../Providers/UserContext/UserContext";
 import { FormLogin } from "../../components/FormLogin/FormLogin";
-import { SignUpLink } from "./style";
+import { SectionSignUp, SignUpLink, TextToSignUp } from "./style";
+import { Title } from "../../components/Title/Title";
 
 export function LoginPage() {
     const { isLoadingLogin } = useContext(UserContext);

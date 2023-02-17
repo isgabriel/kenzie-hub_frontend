@@ -7,6 +7,7 @@ import { api } from "../../services/api";
 export const UserContext = createContext({});
 
 export function UserProvider({ children }) {
+    const [showPassword, setShowPassword] = useState(false);
     const [user, setUser] = useState(null);
 
     const [isLoadingLogin, setIsLoadingLogin] = useState(false);
@@ -101,6 +102,8 @@ export function UserProvider({ children }) {
     return (
         <UserContext.Provider
             value={{
+                showPassword,
+                setShowPassword,
                 requestLogin,
                 user,
                 isLoadingLogin,

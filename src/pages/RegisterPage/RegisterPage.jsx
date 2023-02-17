@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
 import { FormRegister } from "../../components/FormRegister/FormRegister";
 import { Header } from "../../components/Header/Header";
-import { GoBackBtn } from "./style";
-import { DivContainer, ContainerForm } from "../../styles/Container/Container";
-import { TextRegister, Title } from "../../styles/Text/Text";
+import { GoBackBtn, TextRegister } from "./style";
+import { DivContainer, ContainerForm } from "../../styles/Container";
 import { UserContext } from "../../Providers/UserContext/UserContext";
-import { HeaderContainer } from "./style";
+import { HeaderContainerRegister } from "./style";
+import { Title } from "../../components/Title/Title";
 
 export function RegisterPage() {
     const { isLoadingRegister } = useContext(UserContext);
@@ -16,13 +16,13 @@ export function RegisterPage() {
     return (
         <section>
             <DivContainer>
-                <HeaderContainer>
+                <HeaderContainerRegister>
                     <Header>
                         <GoBackBtn to="/" type="linkMinor">
                             Voltar
                         </GoBackBtn>
                     </Header>
-                </HeaderContainer>
+                </HeaderContainerRegister>
                 <ContainerForm>
                     <Title>Crie sua conta</Title>
 

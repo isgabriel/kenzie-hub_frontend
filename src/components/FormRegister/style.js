@@ -1,4 +1,19 @@
 import styled from "styled-components";
+import { ButtonPrimary } from "../../styles/Button";
+
+export const SignUpBtn = styled.button`
+    ${ButtonPrimary};
+    width: 100%;
+
+    border: none;
+
+    background-color: var(--color-primary-negative);
+    color: var(--grey-0);
+    &:hover {
+        transition: 0.6s;
+        background-color: var(--color-primary);
+    }
+`;
 
 export const Select = styled.select`
     padding: 11px 13px;

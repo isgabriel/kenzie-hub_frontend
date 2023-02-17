@@ -1,20 +1,21 @@
 import { useContext } from "react";
 import { TechContext } from "../../../Providers/TechContext/TechContext";
+import { ListItem, TechStatus, TechTitle } from "./style";
 
 export const TechCard = ({ tech }) => {
     const { setIsModalUpdateVisible, setSelectedTech } =
         useContext(TechContext);
 
     return (
-        <li
+        <ListItem
             onClick={() => {
                 setIsModalUpdateVisible(true);
                 setSelectedTech(tech);
             }}
         >
-            <h3>{tech.title}</h3>
+            <TechTitle>{tech.title}</TechTitle>
 
-            <p>{tech.status}</p>
-        </li>
+            <TechStatus>{tech.status}</TechStatus>
+        </ListItem>
     );
 };
