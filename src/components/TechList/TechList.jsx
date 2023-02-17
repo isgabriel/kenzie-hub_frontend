@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { TechContext } from "../../Providers/TechContext/TechContext";
 import { TechCard } from "./TechCard/TechCard";
-import { ModalUpdate } from "../Modal/ModalUpdate/ModalUpdate";
+// import { ModalUpdate } from "../Modal/ModalUpdate/ModalUpdate";
 import { AddMoreTechs, ListTechs } from "./style";
 
 export const TechList = () => {
@@ -9,7 +9,7 @@ export const TechList = () => {
 
     return (
         <ListTechs>
-            {isModalUpdateVisible && <ModalUpdate />}
+            {/* {isModalUpdateVisible && <ModalUpdate />} */}
 
             {techList && techList.length > 0 ? (
                 techList.map((tech) => <TechCard key={tech.id} tech={tech} />)

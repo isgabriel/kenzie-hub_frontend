@@ -1,7 +1,29 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import { useOutClick } from "../../../hooks/hookOutClick/useOutClick";
 import { TechContext } from "../../../Providers/TechContext/TechContext";
+import { ContainerForm } from "../../../styles/Container";
+import { Form } from "../../../styles/Form";
+import { Input } from "../../../styles/Input";
+import { Select, SignUpBtn } from "../../FormRegister/style";
+import { InputWrapper } from "../../InputWrapper/InputWrapper";
+import { Label } from "../../Label/Label";
+import {
+    CloseModalBtn,
+    ContainerFormModal,
+    HeaderModal,
+    ModalContainer,
+    ModalForm,
+    ModalTitle,
+    SectionModal,
+} from "../style";
+import {
+    DeleteBtn,
+    InputDisabled,
+    SaveChangesBtn,
+    SectionBtnModal,
+} from "./style";
 
 export function ModalUpdate() {
     const { setIsModalUpdateVisible, updateTech, removeTech, selectedTech } =
@@ -21,56 +43,68 @@ export function ModalUpdate() {
     const refModalUpdate = useOutClick(() => setIsModalUpdateVisible(null));
 
     return (
-        <section>
-            <div
+        <SectionModal>
+            <ModalContainer
                 ref={refModalUpdate}
                 onClick={(event) => event.stopPropagation()}
             >
-                <div>
-                    <h3>Editar Tecnologia</h3>
-                    <button onClick={() => setIsModalUpdateVisible(false)}>
+                <HeaderModal>
+                    <ModalTitle>Editar Tecnologia</ModalTitle>
+                    <CloseModalBtn
+                        onClick={() => setIsModalUpdateVisible(false)}
+                    >
                         X
-                    </button>
-                </div>
+                    </CloseModalBtn>
+                </HeaderModal>
 
-                <form onSubmit={handleSubmit(submit)}>
-                    <label htmlFor="title">Nome</label>
-                    <input
-                        type="text"
-                        id="title"
-                        value={selectedTech.title}
-                        placeholder={selectedTech.title}
-                        disabled
-                    />
+                <ContainerFormModal>
+                    <ModalForm onSubmit={handleSubmit(submit)}>
+                        <InputWrapper>
+                            <Label htmlFor="title">Nome do projeto</Label>
+                            <InputDisabled
+                                title="Não é possível alterar o nome da tecnologia."
+                                type="text"
+                                id="title"
+                                value={selectedTech.title}
+                                placeholder={selectedTech.title}
+                                disabled
+                            />
+                        </InputWrapper>
 
-                    <div>
-                        <select
-                            {...register("status")}
-                            disabled={loading}
-                            required
-                        >
-                            <option hidden={true}>Selecionar status</option>
-                            <option value="Iniciante">Iniciante</option>
-                            <option value="Intermediário">Intermediário</option>
-                            <option value="Avançado">Avançado</option>
-                        </select>
-                    </div>
+                        <InputWrapper>
+                            <Label>Status</Label>
+                            <Select
+                                {...register("status")}
+                                disabled={loading}
+                                required
+                            >
+                                <option hidden={true}>Selecionar status</option>
+                                <option value="Iniciante">Iniciante</option>
+                                <option value="Intermediário">
+                                    Intermediário
+                                </option>
+                                <option value="Avançado">Avançado</option>
+                            </Select>
+                        </InputWrapper>
 
-                    <div>
-                        <button type="submit">Salvar alterações</button>
+                        <SectionBtnModal>
+                            <SaveChangesBtn type="submit">
+                                Salvar alterações
+                            </SaveChangesBtn>
 
-                        <button
-                            onClick={() => {
-                                removeTech(selectedTech.id, setLoading);
-                                setIsModalUpdateVisible(false);
-                            }}
-                            type="button"
-                        >
-                            Excluir
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </section>
+                            <DeleteBtn
+                                onClick={() => {
+                                    removeTech(selectedTech.id, setLoading);
+                                    setIsModalUpdateVisible(false);
+                                }}
+                                type="button"
+                            >
+                                Excluir
+                            </DeleteBtn>
+                        </SectionBtnModal>
+                    </ModalForm>
+                </ContainerFormModal>
+            </ModalContainer>
+        </SectionModal>
     );
 }

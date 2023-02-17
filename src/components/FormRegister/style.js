@@ -16,6 +16,8 @@ export const SignUpBtn = styled.button`
 `;
 
 export const Select = styled.select`
+    cursor: pointer;
+
     padding: 11px 13px;
 
     width: 100%;

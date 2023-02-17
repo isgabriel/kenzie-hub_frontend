@@ -4,6 +4,20 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useOutClick } from "../../../hooks/hookOutClick/useOutClick";
 import { TechContext } from "../../../Providers/TechContext/TechContext";
+import { Input } from "../../../styles/Input";
+import { Select } from "../../FormRegister/style";
+import { InputWrapper } from "../../InputWrapper/InputWrapper";
+import { Label } from "../../Label/Label";
+import {
+    CloseModalBtn,
+    ContainerFormModal,
+    HeaderModal,
+    ModalContainer,
+    ModalForm,
+    ModalTitle,
+    SectionModal,
+} from "../style";
+import { AddTechBtn } from "./style";
 
 export function ModalCreate() {
     const { setIsModalVisible, createTech } = useContext(TechContext);
@@ -21,35 +35,44 @@ export function ModalCreate() {
     const refModalCreate = useOutClick(() => setIsModalVisible(null));
 
     return (
-        <section>
-            <div ref={refModalCreate}>
-                <div>
-                    <h3>Cadastrar Tecnologia</h3>
-                    <button onClick={() => setIsModalVisible(false)}>X</button>
-                </div>
+        <SectionModal>
+            <ModalContainer ref={refModalCreate}>
+                <HeaderModal>
+                    <ModalTitle>Cadastrar Tecnologia</ModalTitle>
+                    <CloseModalBtn onClick={() => setIsModalVisible(false)}>
+                        X
+                    </CloseModalBtn>
+                </HeaderModal>
 
-                <form onSubmit={handleSubmit(submit)}>
-                    <label htmlFor="title">Nome</label>
-                    <input
-                        type="title"
-                        id="title"
-                        placeholder="Digite aqui o nome da tecnologia"
-                        {...register("title")}
-                    />
+                <ContainerFormModal>
+                    <ModalForm onSubmit={handleSubmit(submit)}>
+                        <InputWrapper>
+                            <Label htmlFor="title">Nome</Label>
+                            <Input
+                                type="title"
+                                id="title"
+                                placeholder="Digite aqui o nome da tecnologia"
+                                {...register("title")}
+                            />
+                        </InputWrapper>
+                        <InputWrapper>
+                            <Label>Selecionar status</Label>
+                            <Select {...register("status")}>
+                                <option hidden={true}>Selecionar status</option>
+                                <option value="Iniciante">Iniciante</option>
+                                <option value="Intermediário">
+                                    Intermediário
+                                </option>
+                                <option value="Avançado">Avançado</option>
+                            </Select>
+                        </InputWrapper>
 
-                    <section>
-                        <label>Selecionar status</label>
-                        <select {...register("status")}>
-                            <option hidden={true}>Selecionar status</option>
-                            <option value="Iniciante">Iniciante</option>
-                            <option value="Intermediário">Intermediário</option>
-                            <option value="Avançado">Avançado</option>
-                        </select>
-                    </section>
-
-                    <button type="submit">Cadastrar</button>
-                </form>
-            </div>
-        </section>
+                        <AddTechBtn type="submit">
+                            Cadastrar Tecnologia
+                        </AddTechBtn>
+                    </ModalForm>
+                </ContainerFormModal>
+            </ModalContainer>
+        </SectionModal>
     );
 }

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { DashInfo } from "../../components/DashInfo/DashInfo";
 import { ModalCreate } from "../../components/Modal/ModalCreate/ModalCreate";
+import { ModalUpdate } from "../../components/Modal/ModalUpdate/ModalUpdate";
 import { TechList } from "../../components/TechList/TechList";
 import { TechContext } from "../../Providers/TechContext/TechContext";
 import {
@@ -13,10 +14,11 @@ import {
 
 export function Dashboard() {
     const { isModalVisible, setIsModalVisible } = useContext(TechContext);
+    const { techList, isModalUpdateVisible } = useContext(TechContext);
     return (
         <MainDash>
-            {" "}
             {isModalVisible && <ModalCreate />}
+            {isModalUpdateVisible && <ModalUpdate />}
             <DashInfo />
             <SectionTecnologies>
                 <DivTecnologies>
