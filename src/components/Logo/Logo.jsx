@@ -1,9 +1,11 @@
-import logo from "../../assets/Logo.svg";
+import { LogoStyled } from "./style";
 
 export function Logo() {
     return (
         <>
-            <img src={logo} alt="Logo-Kenzie-Hub" />
+            <LogoStyled href="https://techs-hub-isgabriel.vercel.app">
+                Techs Hub
+            </LogoStyled>
         </>
     );
 }
