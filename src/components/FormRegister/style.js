@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { ButtonPrimary } from "../../styles/Button";
+import { ButtonPrimary, ButtonSecondary } from "../../styles/Button";
+import { Link } from "react-router-dom";
 
 export const SignUpBtn = styled.button`
     ${ButtonPrimary};
@@ -33,4 +34,19 @@ export const Select = styled.select`
         outline: 0;
         border: 1px solid var(--grey-0);
     }
+`;
+
+export const OrText = styled.p`
+    text-align: center;
+`;
+
+export const GoBackBtn = styled(Link)`
+    ${ButtonSecondary}
+
+    /* background-color: var(--color-primary-focus); */
+    /* width: 100%; */
+    min-width: 230px;
+    max-width: 325px;
+
+    padding: 11px 0;
 `;

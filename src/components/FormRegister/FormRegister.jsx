@@ -9,7 +9,7 @@ import { UserContext } from "../../Providers/UserContext/UserContext";
 import { InputWrapper } from "../InputWrapper/InputWrapper";
 import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
 import { InputPassword } from "../InputPassword/InputPassword";
-import { Select, SignUpBtn } from "./style";
+import { GoBackBtn, OrText, Select, SignUpBtn } from "./style";
 import { Label } from "../Label/Label";
 
 export function FormRegister() {
@@ -134,6 +134,10 @@ export function FormRegister() {
             </InputWrapper>
 
             <SignUpBtn type="submit">Cadastrar</SignUpBtn>
+            <OrText>OU</OrText>
+            <GoBackBtn to="/" type="linkMinor">
+                Voltar
+            </GoBackBtn>
         </Form>
     );
 }
