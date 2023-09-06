@@ -8,10 +8,6 @@
 
 -   [Descrição do Projeto](#descrição-do-projeto)
 -   [Técnicas e Tecnologias utilizadas no Projeto](#🔨-técnicas-e-tecnologias-utilizadas-no-projeto)
--   [Ajustes e Melhorias](#🚀-ajustes-e-melhorias)
--   [Pré requisitos](#💻-pré-requisitos)
--   [Instalando o projeto](#🚀-instalando-projeto)
--   [Usando o projeto](#☕-usando-o-projeto)
 -   [Colaboradores](#🤝-colaboradores)
 
 ## ✔️ Descrição do projeto
