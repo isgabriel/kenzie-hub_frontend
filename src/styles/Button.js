@@ -20,7 +20,7 @@ export const ButtonSecondary = css`
 
     text-align: center;
 
-    background-color: var(--grey-3);
+    background-color: var(--grey-2);
     color: var(--grey-0);
 
     padding: 9px 23px;

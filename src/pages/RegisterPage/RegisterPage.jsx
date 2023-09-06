@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { FormRegister } from "../../components/FormRegister/FormRegister";
 import { Header } from "../../components/Header/Header";
-import { GoBackBtn, TextRegister } from "./style";
+import { TextRegister } from "./style";
 import { DivContainer, ContainerForm } from "../../styles/Container";
 import { UserContext } from "../../Providers/UserContext/UserContext";
 import { HeaderContainerRegister } from "./style";
@@ -17,11 +17,7 @@ export function RegisterPage() {
         <section>
             <DivContainer>
                 <HeaderContainerRegister>
-                    <Header>
-                        <GoBackBtn to="/" type="linkMinor">
-                            Voltar
-                        </GoBackBtn>
-                    </Header>
+                    <Header></Header>
                 </HeaderContainerRegister>
                 <ContainerForm>
                     <Title>Crie sua conta</Title>
